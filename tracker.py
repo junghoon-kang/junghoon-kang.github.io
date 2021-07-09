@@ -1,3 +1,4 @@
+import os
 import yaml
 import datetime
 import xml.etree.cElementTree as ET
@@ -5,9 +6,11 @@ import numpy as np
 from xml.dom import minidom
 
 
+WORKOUT_DATA_PATH = "/home/junghoon/Miscellany/TODO/workout"
+
 def create_workout_tracker(year=2021):
     svg, date_elements = create_activity_tracker(year)
-    with open("_data/workout_log.yml", "r") as f:
+    with open(os.path.join(WORKOUT_DATA_PATH, f"{year}.yml"), "r") as f:
         w = yaml.load(f, Loader=yaml.FullLoader)
         for date, log in w.items():
             if date.year == year:
