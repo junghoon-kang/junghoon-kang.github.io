@@ -1,13 +1,50 @@
 <!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{ page.title }}</title>
-        <link rel="stylesheet" href="/assets/css/styles.css">
-    </head>
-    <body>
-        {% include navigation.html %}
-        {% include workout_tracker_2021.html %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <!-- -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <div class="container" style="padding-top:50px">
+        <!-- 네비게이션 바 -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="nav navbar-nav">
+                        {% include navigation.html %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 패널 -->
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Workout 2021
+                </div>
+                <div class="panel-body">
+                    {% include workout_tracker_2021.html %}
+                </div>
+            </div>
+        </div>
+
         {{ content }}
-    </body>
+    </div>
+</body>
 </html>
